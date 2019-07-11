@@ -4,6 +4,10 @@ import { Text, View, StyleSheet } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import Reactotron from 'reactotron-react-native';
+
+import api from '~/services/api';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -15,7 +19,12 @@ const styles = StyleSheet.create({
 export default class Main extends Component {
   state = {};
 
-  componentDidMount() {}
+  async componentDidMount() {
+    const news = await api.get('/topstories.json');
+    const story = await api.get(`/item/${news.data[0]}.json`);
+
+    Reactotron.log(story);
+  }
 
   render() {
     return (
