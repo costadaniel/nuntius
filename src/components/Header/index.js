@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { withNavigation } from 'react-navigation';
+// import PropTypes from 'prop-types';
+
+import Reactotron from 'reactotron-react-native';
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {
@@ -7,13 +10,19 @@ import {
 } from './styles';
 
 class Header extends Component {
+  static propTypes = {}
+
   state = {};
+
+  openDrawer = () => {
+    Reactotron.log(this.props);
+  }
 
   render() {
     return (
       <Container>
         <StatusBar />
-        <HeaderIcon>
+        <HeaderIcon onPress={this.openDrawer}>
           <Icon name="menu" size={30} color="#000" />
         </HeaderIcon>
         <HeaderText>Nuntius</HeaderText>
@@ -23,4 +32,4 @@ class Header extends Component {
   }
 }
 
-export default withNavigation(Header);
+export default Header;
