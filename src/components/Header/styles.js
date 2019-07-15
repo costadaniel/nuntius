@@ -23,8 +23,9 @@ export const Container = styled.View`
 export const HeaderIcon = styled.TouchableOpacity``;
 
 export const HeaderText = styled.Text`
+  font-family: DMSerifDisplay-Regular;
+  font-size: 26;
   color: #000;
-  font-size: 20;
 `;
 
 export const Space = styled.View`
