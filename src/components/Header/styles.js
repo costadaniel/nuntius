@@ -13,6 +13,7 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  align-self: stretch;
   padding-left: 10;
   padding-right: 10;
   background-color: #fff;

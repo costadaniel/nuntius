@@ -5,7 +5,7 @@ import { View } from 'react-native';
 // import { Container } from './styles';
 import Header from '~/components/Header';
 
-export default class Top extends Component {
+export default class Trending extends Component {
   state = {}
 
   render() {
