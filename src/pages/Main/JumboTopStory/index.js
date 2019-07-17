@@ -24,13 +24,14 @@ export default class Main extends Component {
 
   async componentDidMount() {
     const { id } = this.props;
+
+    Reactotron.log(this.props);
+
     const story = await api.get(`/item/${id}.json`);
 
     const infos = await LinkPreview.getPreview(story.data.url, {
       imagesPropertyType: 'og', // fetches only open-graph images
     });
-
-    Reactotron.log(infos.images[0]);
 
     if (infos.images.length > 0) {
       this.setState({
