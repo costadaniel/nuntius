@@ -6,21 +6,26 @@ import Reactotron from 'reactotron-react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {
-  Container, HeaderIcon, HeaderText, Space, StatusBar,
+  Container,
+  HeaderIcon,
+  HeaderText,
+  Space,
+  StatusBar,
+  globalStyle,
 } from './styles';
 
 class Header extends Component {
-  static propTypes = {}
+  static propTypes = {};
 
   state = {};
 
   openDrawer = () => {
     Reactotron.log(this.props);
-  }
+  };
 
   render() {
     return (
-      <Container>
+      <Container style={globalStyle.shadow}>
         <StatusBar />
         <HeaderIcon onPress={this.openDrawer}>
           <Icon name="menu" size={30} color="#000" />

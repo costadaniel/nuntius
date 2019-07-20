@@ -2,6 +2,10 @@ import styled from 'styled-components/native';
 
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 
+import { global } from '~/styles';
+
+export const globalStyle = global;
+
 export const StatusBar = styled.StatusBar.attrs({
   backgroundColor: '#fff',
   barStyle: 'dark-content',

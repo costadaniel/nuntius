@@ -1,3 +1,3 @@
 module.exports = {
-  assets: ['./assets/fonts/DMSerifDisplay'],
+  assets: ['./src/assets/fonts/DMSerifDisplay'],
 };

@@ -5,7 +5,14 @@ import PropTypes from 'prop-types';
 import Reactotron from 'reactotron-react-native';
 
 import LinkPreview from 'react-native-link-preview';
-import { Container, LoadingIndicator, InfoContainer, Title } from './styles';
+import {
+  Container,
+  LoadingIndicator,
+  MediaContainer,
+  InfoContainer,
+  Title,
+  globalStyle,
+} from './styles';
 
 import api from '~/services/api';
 
@@ -15,7 +22,7 @@ export default class Main extends Component {
   };
 
   state = {
-    mediaUrl: '',
+    mediaUrl: '~/assets/images/white-bg.jpg',
     storyInfos: {},
     onLoading: true,
   };
@@ -23,9 +30,9 @@ export default class Main extends Component {
   async componentDidMount() {
     const { id } = this.props;
 
-    Reactotron.log(this.props);
-
     const story = await api.get(`/item/${id}.json`);
+
+    this.setState({ storyInfos: story.data });
 
     const infos = await LinkPreview.getPreview(story.data.url, {
       imagesPropertyType: 'og', // fetches only open-graph images
@@ -34,12 +41,10 @@ export default class Main extends Component {
     if (infos.images.length > 0) {
       this.setState({
         mediaUrl: infos.images[0],
-        storyInfos: story.data,
         onLoading: false,
       });
     } else {
       this.setState({
-        storyInfos: story.data,
         onLoading: false,
       });
     }
@@ -49,30 +54,15 @@ export default class Main extends Component {
     const { mediaUrl, storyInfos, onLoading } = this.state;
 
     return (
-      <Container
-        source={
-          mediaUrl.length > 0
-            ? { uri: mediaUrl }
-            : require('../../../../assets/images/white-bg.jpg')
-        }
-        style={{
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 4,
-          },
-          shadowOpacity: 0.3,
-          shadowRadius: 4.65,
-          elevation: 8,
-        }}
-      >
+      <Container style={globalStyle.shadow}>
         {onLoading ? (
           <LoadingIndicator />
         ) : (
-          <InfoContainer>
-            <Title>{storyInfos.title}</Title>
-          </InfoContainer>
+          <MediaContainer source={{ uri: mediaUrl }} />
         )}
+        <InfoContainer>
+          <Title>{storyInfos.title}</Title>
+        </InfoContainer>
       </Container>
     );
   }
