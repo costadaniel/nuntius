@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -35,7 +34,7 @@ export default class Main extends Component {
     this.setState({ storyInfos: story.data });
 
     const infos = await LinkPreview.getPreview(story.data.url, {
-      imagesPropertyType: 'og', // fetches only open-graph images
+      imagesPropertyType: 'og',
     });
 
     if (infos.images.length > 0) {

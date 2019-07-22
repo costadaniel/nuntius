@@ -1,11 +1,14 @@
 import styled from 'styled-components/native';
-import { colors, metrics } from '~/styles';
+import { colors } from '~/styles';
 
-export const Container = styled.View`
-  flex: 1;
+export const Container = styled.ScrollView``;
+
+export const TrendingList = styled.FlatList`
   background-color: ${colors.light};
 `;
 
-export const TrendingList = styled.FlatList`
-  margin-right: ${metrics.baseMargin};
+export const NewsList = styled.FlatList`
+  background-color: ${colors.light};
 `;
+
+export const LeadingText = styled.Text``;

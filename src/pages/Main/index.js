@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Reactotron from 'reactotron-react-native';
 
-import { Container, TrendingList } from './styles';
+import { Container, TrendingList, NewsList, LeadingText } from './styles';
 
 // import Drawer from '~/components/Drawer';
 import Header from '~/components/Header';
@@ -20,6 +20,7 @@ export default class Main extends Component {
     }
 
     const topStories = await api.get('/topstories.json');
+    // const newStories = await api.get('/newstories.json');
     this.setState({ news: topStories.data.slice(0, 10).map(itemToObject) });
   }
 
@@ -31,8 +32,17 @@ export default class Main extends Component {
     return (
       <Container>
         <Header />
+        <LeadingText>Trending</LeadingText>
         <TrendingList
           horizontal
+          showsHorizontalScrollIndicator={false}
+          data={news}
+          keyExtractor={item => String(item.value)}
+          renderItem={this.renderJumboTopStory}
+        />
+        <LeadingText>NewLest</LeadingText>
+        <NewsList
+          showsVerticalScrollIndicator={false}
           data={news}
           keyExtractor={item => String(item.value)}
           renderItem={this.renderJumboTopStory}
