@@ -10,6 +10,8 @@ O Nuntius é um aplicativo para celulares feito em React Native que consome a AP
 - [ ] Create a multi language documentation for the project
 
 ## Packages used on this project:
-- [Expo](https://github.com/expo/expo)
-- [Expo Router](https://docs.expo.dev/router/introduction/)
-- [Commitizen CLI](https://github.com/commitizen/cz-cli)
+|      Package     |                Package URL                   |
+| ---------------- | -------------------------------------------- |
+| Expo             | [Link](https://github.com/expo/expo)         |
+| React Navigation | [Link](https://reactnavigation.org/)         |
+| Commitizen CLI   | [Link](https://github.com/commitizen/cz-cli) |
